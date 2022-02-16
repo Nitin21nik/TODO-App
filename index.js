@@ -1,9 +1,21 @@
 const express = require('express');//require express library
+const path=require('path');
 const port = 8000;//initialize the port number
 
-const db=require('./config/mongoose');
+const db=require('./config/mongoose');//acessing the database
+var tasks_List;
+
 const app = express();//initiating the express server
 
+app.use(express.urlencoded({extended:true}));//Middleware for accessing the request body 
+
+app.set('view engine','ejs');//setting the view engine
+
+app.set('views',path.join(__dirname,'views'));//joining the current directory with views
+
+app.use('/',require('./routes'));//Middleware for routes
+
+app.use(express.static('assets'));// Middleware for setting the static files
 
 app.listen(port, function(err) {   //running the server
     if (err) {
@@ -11,3 +23,4 @@ app.listen(port, function(err) {   //running the server
     }
     console.log(`server is up and running on port:${port}`);
 });
+

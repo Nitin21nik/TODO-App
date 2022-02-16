@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/todo.css">
+    <title>My TODO App</title>
+</head>
+
+<body>
+    <div id="todo-container">
+        <h2 id="heading" class="center-align">TODO App</h2>
+
+        <hr>
+
+        <div id="form-container">
+            <form action="/create" method="POST">
+                <div id="task-container">
+                    <label>Description</label> <br>
+                    <textarea name="taskName" id="description" rows="2"
+                        placeholder="What do you need to do?"></textarea>
+                </div>
+
+                <hr>
+
+                <div id="outer-container">
+                    <div id="category-container">
+                        <label>Category</label> <br>
+                        <select name="label" id="category">
+                            <option value="choose-category" selected>Choose a Category</option>
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="school">School</option>
+                            <option value="cleaning">Cleaning</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div id="date-container">
+                        <label>Date</label> <br>
+                        <input type="date" id="date" name="date">
+                    </div>
+                    <div class="vertical"></div>
+                </div>
+
+                <hr>
+
+                <div id="buttons-container">
+                    <button type="submit" id="add"><i class="fas fa-plus"></i> &nbsp ADD TASK</button>
+                    <button formaction="/remove-item" type="submit" id="delete"><i class="fas fa-trash"></i> &nbsp
+                        DELETE TASK</button>
+                </div>
+
+                <!--populating the tasks-list in home page from db-->
+                <% if(tasks_List.length!=0) { %>
+                    <ul>
+                        <% for(let i of tasks_List) { %>
+                            <li>
+                                <div class="card">
+                                    <div class="task-check">
+                                        <input type="checkbox" name="check" value="<%= i._id %>">
+                                        <div class="task-details">
+                                            <p>
+                                                <%= i.task %> <br>
+                                            <i class="fas fa-calendar-days"></i> &nbsp <%= i.dueDate.toDateString().substring(4) %>
+                                        </p>
+                                        </div>
+                                    </div>
+                                    <div class="label-name">
+                                        <span>
+                                            <%= i.label %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <% } %>
+                    </ul>
+                    <% } %>
+        </div>
+        </form>
+    </div>
+</body>
+
+</html>
