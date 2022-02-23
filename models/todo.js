@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const taskSchema=new mongoose.Schema({
+const taskSchema=new mongoose.Schema({   //creating the schema using mongoose
     task:{
       type:String,
       required:true
@@ -17,5 +17,5 @@ const taskSchema=new mongoose.Schema({
     timestamps:true
 });
 
-const Task=mongoose.model('Task',taskSchema);
+const Task=mongoose.model('Task',taskSchema); //storing the taskSchema in database
 module.exports=Task;

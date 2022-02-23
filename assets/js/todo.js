@@ -1,5 +1,5 @@
-var labelName=document.getElementsByClassName('labelName');
-for(var i=0;i<labelName.length;i++)
+var labelName=document.getElementsByClassName('labelName'); // using dom to fetch labelName
+for(var i=0;i<labelName.length;i++) //adding different colour labels to each task
 {
     if(labelName[i].innerText=="work")
     {
