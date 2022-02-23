@@ -61,12 +61,14 @@
                             <li>
                                 <div class="card">
                                     <div class="task-check">
-                                        <input type="checkbox" id="check-box" name="check" value="<%= i._id %>" class="strikethrough">
+                                        <input type="checkbox" id="check-box" name="check" value="<%= i._id %>"
+                                            class="strikethrough">
                                         <div class="task-details" id="para-div">
                                             <p id="para">
                                                 <%= i.task %> <br>
-                                            <i class="fas fa-calendar-days"></i> &nbsp <%= i.dueDate.toDateString().substring(4) %>
-                                        </p>
+                                                    <i class="fas fa-calendar-days"></i> &nbsp <%=
+                                                        i.dueDate.toDateString().substring(4) %>
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="labelName" id="label-name">
@@ -79,7 +81,10 @@
 
                             <% } %>
                     </ul>
+                    <% }  else { %>
+                        <h2 style="margin:2rem">TODO List is Empty!!!</h2>
                     <% } %>
+
         </div>
         </form>
     </div>

@@ -8,12 +8,12 @@ body{
 
 #todo-container{
     height:auto;
-    border:1px solid black;
     width:60%;
-    margin:auto;
-    margin-top:1rem;
+    margin:1rem auto;
     background-color:white;
+    padding:1rem;
 }
+
 
 
 #task-container{
@@ -66,7 +66,6 @@ label{
     top:-24%;
     left:50%;
     height:3.8rem;
-    border-left:1px solid black;
 }
 
 #buttons-container{
@@ -105,17 +104,17 @@ ul{
 
 .card{
     width:95%;
-    margin:auto;
+    margin: 1rem auto;
     height:5rem;
-    border:1px solid black;
     display:flex;
     justify-content: space-between;
     align-items: center;
+    background-color:rgba(0,0,0,0.7);
+    color:white;
 }
 
 .task-check
 {
-   border:1px solid black;
    display:flex;
    height:100%;
    width:70%;
@@ -126,6 +125,9 @@ ul{
 .task-check input{
     display:inline-block;
     margin-top:-1rem;
+    margin-left:1rem;
+    height:1rem;
+    width:1rem;
 }
 
 .task-details{
@@ -138,7 +140,6 @@ ul{
 
 
 .labelName{
-    border:1px solid black;
     display:flex;
     height:60%;
     width:20%;

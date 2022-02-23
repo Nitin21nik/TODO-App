@@ -3,7 +3,11 @@ const path=require('path');
 const port = 8000;//initialize the port number
 
 const db=require('./config/mongoose');//acessing the database
-var tasks_List;
+var tasks_List=[{
+    task:"add a task",
+    dueDate:"No deadline",
+    label:" "
+}]
 
 const app = express();//initiating the express server
 
