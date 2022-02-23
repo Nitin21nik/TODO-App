@@ -41,7 +41,7 @@
 
                     <div id="date-container">
                         <label>Date</label> <br>
-                        <input type="date" id="date" name="date">
+                        <input type="date" id="date" name="date" value="No deadline">
                     </div>
                     <div class="vertical"></div>
                 </div>
@@ -61,15 +61,15 @@
                             <li>
                                 <div class="card">
                                     <div class="task-check">
-                                        <input type="checkbox" name="check" value="<%= i._id %>">
-                                        <div class="task-details">
-                                            <p>
+                                        <input type="checkbox" id="check-box" name="check" value="<%= i._id %>" class="strikethrough">
+                                        <div class="task-details" id="para-div">
+                                            <p id="para">
                                                 <%= i.task %> <br>
                                             <i class="fas fa-calendar-days"></i> &nbsp <%= i.dueDate.toDateString().substring(4) %>
                                         </p>
                                         </div>
                                     </div>
-                                    <div class="label-name">
+                                    <div class="labelName" id="label-name">
                                         <span>
                                             <%= i.label %>
                                         </span>
@@ -83,6 +83,8 @@
         </div>
         </form>
     </div>
+
+    <script type="text/javascript" src="./js/todo.js"></script>
 </body>
 
 </html>
