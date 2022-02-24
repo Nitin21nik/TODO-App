@@ -8,7 +8,7 @@ module.exports.home=function(req,res){ // controller action for loading the home
          return;
       }
 
-      return res.render('home',{
+      return res.render('index',{
          tasks_List:tasks
       });
    });
