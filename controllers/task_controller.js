@@ -21,18 +21,20 @@ module.exports.remove = function (req, res) //controller action for deleting the
 {
     const checkedTaskId = req.body.check;
     console.log(checkedTaskId);
-    if(checkedTaskId!=undefined){
-        Task.findByIdAndRemove(checkedTaskId, function (err) {
-            if (!err) {
-                console.log("Successfully deleted the checked task");
-                return res.redirect('back');
-            }
-        });
+    if (checkedTaskId != undefined) {
+        for (let elem of checkedTaskId) {
+            Task.findByIdAndRemove(elem, function (err) {
+                if (!err) {
+                    console.log("Successfully deleted the checked task");
+                }
+            });
+        }
+        return res.redirect('back');
     }
 
-    else{
+    else {
         console.log('nothing checked to delete');
         return res.redirect('back');
     }
-    
+
 }
