@@ -21,9 +21,19 @@ module.exports.remove = function (req, res) //controller action for deleting the
 {
     const checkedTaskId = req.body.check;
     console.log(checkedTaskId);
+
     if (checkedTaskId != undefined) {
-        for (let elem of checkedTaskId) {
-            Task.findByIdAndRemove(elem, function (err) {
+        if (Array.isArray(checkedTaskId)) {
+            for (let elem of checkedTaskId) {
+                Task.findByIdAndDelete(elem, function (err) {
+                    if (!err) {
+                        console.log("Successfully deleted the checked task");
+                    }
+                });
+            }
+        }
+        else {
+            Task.findByIdAndDelete(checkedTaskId, function (err) {
                 if (!err) {
                     console.log("Successfully deleted the checked task");
                 }
@@ -36,5 +46,4 @@ module.exports.remove = function (req, res) //controller action for deleting the
         console.log('nothing checked to delete');
         return res.redirect('back');
     }
-
 }
