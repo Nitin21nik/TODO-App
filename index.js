@@ -1,5 +1,4 @@
 const express = require('express');//require express library
-const path=require('path');
 const port = process.env.PORT || 8000;//initialize the port number
 
 const db=require('./config/mongoose');//acessing the database
@@ -13,9 +12,11 @@ const app = express();//initiating the express server
 
 app.use(express.urlencoded({extended:true}));//Middleware for accessing the request body 
 
+app.use(express.static('./assets'));
+
 app.set('view engine','ejs');//setting the view engine
 
-app.set('views',path.join(__dirname,'views'));//joining the current directory with views
+app.set('views','./views');//joining the current directory with views
 
 app.use('/',require('./routes'));//Middleware for routes
 
