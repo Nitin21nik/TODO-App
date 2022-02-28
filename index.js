@@ -1,6 +1,6 @@
 const express = require('express');//require express library
 const path=require('path');
-const port = 8000;//initialize the port number
+const port = process.env.PORT || 8000;//initialize the port number
 
 const db=require('./config/mongoose');//acessing the database
 var tasks_List=[{
